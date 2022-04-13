@@ -3,12 +3,11 @@ import { reactionAdded } from "./postsSlice";
 
 const reactionEmoji = {
     thumbsUp: '👍',
-    wow: '😲 ',
-    hearth: '❤',
+    wow: '😮',
+    heart: '❤️',
     rocket: '🚀',
     coffee: '☕'
 }
-
 const ReactionButtons = ({post}) => {
     const dispatch = useDispatch()
     const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
@@ -21,7 +20,7 @@ const ReactionButtons = ({post}) => {
                 onClick={() =>
                     dispatch(reactionAdded({postId: post.id, reaction: name}))
                 }>
-                {emoji} {post.reaction[name]}
+                {emoji} {post.reactions[name]}
             </button>
         )
     })
